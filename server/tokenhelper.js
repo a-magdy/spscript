@@ -54,7 +54,7 @@ var getRealm = function (spSiteUrl) {
     return new Promise(function (resolve, reject) {
         var url = `${spSiteUrl}/_vti_bin/client.svc`;
         var headers = {
-            "Authorization": "Bearer ",
+            // "Authorization": "Bearer ",
             "Accept": "application/json;odata=verbose",
             "response_type": "code"
         };
@@ -62,6 +62,14 @@ var getRealm = function (spSiteUrl) {
         request.get(url, headers).then(res => {
             //this should fail
             console.log("Get Realm succeeded");
+
+            // var realm = parseRealm(res.headers["www-authenticate"])
+            // if (realm) {
+            //     resolve(realm);
+            // } else {
+            //     reject(err, res);
+            // }
+
         }).catch((res, arg1) => {
             var realm = parseRealm(res.headers["www-authenticate"])
             if (realm) {

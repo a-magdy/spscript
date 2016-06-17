@@ -9,5 +9,6 @@ SPScript.templating = require("mustache");
 SPScript.utils = require("../lib/utils");
 SPScript.ajax = require("../lib/ajax");
 SPScript.jsLink = require("../lib/jsLink");
+SPScript.ServerDao = require("../server/serverDao")
 module.exports = global.SPScript = SPScript;
 

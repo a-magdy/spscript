@@ -14,10 +14,11 @@ var ajax = require('./ajax')
  * @example <caption>Create a new instance of a RestDao</caption>
  * var dao = new SPScript.RestDao(_spPageContextInfo.webAbsoluteUrl);
  */ 
-var RestDao = function(url) {
+var RestDao = function(url, accessToken) {
 	var self = this;
 	BaseDao.call(this);
 	this.webUrl = url || _spPageContextInfo.webAbsoluteUrl;
+	this.accessToken = accessToken
 };
 
 RestDao.prototype = Object.create(BaseDao.prototype);
@@ -30,7 +31,8 @@ RestDao.prototype.executeRequest = function(url, options) {
 		method: "GET",
 		headers: {
 			"Accept": "application/json; odata=verbose",
-			"Content-Type": "application/json; odata=verbose"
+			"Content-Type": "application/json; odata=verbose",
+			"Authorization": "Bearer " + this.accessToken
 		}
 	};
 
