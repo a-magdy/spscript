@@ -2,7 +2,7 @@
   "name": "spscript",
   "version": "1.4.0",
   "description": "SharePoint 2013 Rest Api Wrappers",
-  "main": "./entries/spscript.js",
+  "main": "./server/serverDao",
   "scripts": {
     "prebuild": "npm run lint && npm run babel",
     "build": "webpack",
